@@ -1,25 +1,19 @@
 import React from "react";
 import "./styleBodyLeft.scss";
-function BodyLeft() {
+function BodyLeft({ listData }) {
   return (
     <div>
       <div className="body-left">
         <ul className="body-left__list">
-          <li>
-            <a href="#s">Cà phê sữa đá</a>
-          </li>
-          <li>
-            <a href="#s">Cà phê sữa đá</a>
-          </li>
-          <li>
-            <a href="#s">Cà phê sữa đá</a>
-          </li>
-          <li>
-            <a href="#s">Cà phê sữa đá</a>
-          </li>
-          <li>
-            <a href="#s">Cà phê sữa đá</a>
-          </li>
+          {listData.map((item, index) => (
+            <li
+              id={`at${item._id}`}
+              className={index === 0 ? "active" : null}
+              key={index}
+            >
+              <a href={`#${item._id}`}>{item.description}</a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
