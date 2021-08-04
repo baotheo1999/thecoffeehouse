@@ -8,7 +8,7 @@ import {
 export const initialState = {
   listAddress: [],
   statusFlags: {
-    isLoading: true,
+    isOpen: true,
   },
   log: {
     error: "",
@@ -21,16 +21,16 @@ const addressReducer = (state = initialState, action) =>
     const { type } = action;
     switch (type) {
       case GET_LIST_ADDRESS: {
-        draft.statusFlags.isLoading = true;
+        draft.statusFlags.isOpen = true;
         break;
       }
       case GET_LIST_ADDRESS_SUCCESS: {
-        draft.statusFlags.isLoading = false;
+        draft.statusFlags.isOpen = false;
         draft.listAddress = action.payload;
         break;
       }
       case GET_LIST_ADDRESS_FAILED: {
-        draft.statusFlags.isLoading = false;
+        draft.statusFlags.isOpen = false;
         draft.log.error = action.message;
         break;
       }

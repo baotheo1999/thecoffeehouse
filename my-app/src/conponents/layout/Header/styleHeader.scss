@@ -12,6 +12,7 @@
   height: 70px;
   &-center {
     position: relative;
+    display: flex;
     input {
       margin-left: 20px;
       width: 400px;

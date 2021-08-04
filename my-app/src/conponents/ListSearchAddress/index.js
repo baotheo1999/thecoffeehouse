@@ -1,10 +1,10 @@
 import React from "react";
 import "./styleListSearchAddress.scss";
 
-function ListSearchAddress({ dataAddress, getAddressClick, refAddress }) {
+function ListSearchAddress({ listAddress, getAddressClick, refAddress }) {
   return (
     <ul className="list-address" ref={refAddress}>
-      {dataAddress.map((item) => (
+      {listAddress.map((item) => (
         <li
           className="item-address"
           key={item.place_id}
