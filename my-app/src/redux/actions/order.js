@@ -4,11 +4,10 @@ import {
   ADD_LIST_PRODUCT_ORDER,
 } from "../constants/order";
 
-export function selectProduct(product, index) {
+export function selectProduct(product) {
   return {
     type: SELECT_PRODUCT,
     product,
-    index,
   };
 }
 

@@ -8,6 +8,10 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
+.colorb {
+  color: #f9d7ba !important;
+}
+
 .modal-order {
   width: 600px;
   background-color: #fff;
@@ -63,6 +67,9 @@
         .checkbox-container {
           border-bottom: 1px solid #e5e5e5;
           padding: 5px 0;
+          &:last-of-type {
+            border-bottom: none;
+          }
         }
         .checkbox-items {
           display: flex;
@@ -72,10 +79,11 @@
               font-size: 15px;
               cursor: pointer;
             }
-            span {
+            label {
               font-size: 14px;
               color: rgb(51, 51, 51);
               margin-left: 2px;
+              cursor: pointer;
               p {
                 display: inline-block;
               }

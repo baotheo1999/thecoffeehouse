@@ -25,7 +25,6 @@ const orderReducer = (state = initialState, action) =>
       case SELECT_PRODUCT: {
         draft.statusFlags.openModal = true;
         draft.infoProductSelect = action.product;
-        draft.indexProductOrder = action.index;
         break;
       }
 

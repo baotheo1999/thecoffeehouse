@@ -8,6 +8,7 @@ function BodyCenter({
   searchText,
   handleSearchProductChange,
   listFilterProduct,
+  openModalOrderClick,
 }) {
   return (
     <div className="body-center">
@@ -28,7 +29,11 @@ function BodyCenter({
             <h4 className="category-title">{categories.description}</h4>
             <ul className="product">
               {categories.ListProduct.map((products) => (
-                <ProductItem key={products._id} listProduct={products} />
+                <ProductItem
+                  key={products._id}
+                  listProduct={products}
+                  openModalOrderClick={openModalOrderClick}
+                />
               ))}
             </ul>
           </div>
@@ -37,7 +42,11 @@ function BodyCenter({
         <div className="category" style={{ marginTop: 20 }}>
           <ul className="product">
             {listFilterProduct.map((products) => (
-              <ProductItem key={products._id} listProduct={products} />
+              <ProductItem
+                key={products._id}
+                listProduct={products}
+                openModalOrderClick={openModalOrderClick}
+              />
             ))}
           </ul>
         </div>

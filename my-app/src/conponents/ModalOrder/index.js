@@ -1,79 +1,63 @@
 import React from "react";
-import "./styleModalOrder.scss";
+import Currency from "../common/Currency";
 import Image from "../common/Image";
 import Input from "../common/Input";
-import Currency from "../common/Currency";
+import "./styleModalOrder.scss";
 function ModalOrder({
-  productSelect,
-  CloseModalOrder,
+  closeModalOrderClick,
   amount,
   handlePlusAmount,
   handleMinusAmount,
-  size,
-  priceSize,
-  handleSizeChange,
-  nameTopping,
-  priceTopping,
-  handleToppingChange,
-  handleNoteChange,
-  handleAddProductOrderClick,
+  infoProductSelect,
 }) {
+  console.log(infoProductSelect);
   return (
     <>
-      <div className="overlay" onClick={CloseModalOrder}></div>
+      <div className="overlay" onClick={closeModalOrderClick}></div>
       <div className="modal-order">
         <div className="product-option__top">
-          <Image src={productSelect.image} width="80" height="80" />
+          <Image src={infoProductSelect.image} width="80" height="80" />
           <div className="product-option__top-info">
-            <p>{productSelect.product_name}</p>
-            <p>{size}</p>
-            <p>{nameTopping.slice(0, -2)}</p>
+            <p>{infoProductSelect.product_name}</p>
+            <p>Vừa</p>
+            <p>Topping 1</p>
           </div>
-          <i className="fa fa-times" onClick={CloseModalOrder}></i>
+          <i className="fa fa-times" onClick={closeModalOrderClick}></i>
         </div>
 
         <div className="product-option__body">
           <div className="product-option__body-option">
-            {/* <p>Loại</p> */}
-            {productSelect.variants.length !== 0 && (
+            {infoProductSelect.variants.length !== 0 && (
               <div className="checkbox-container">
                 <p>Size-</p>
                 <div className="checkbox-items">
-                  {productSelect.variants.map((item) => (
-                    <div className="checkbox" key={item.product_id}>
-                      <Input
-                        type="radio"
-                        name={item.val}
-                        checked={item.val === size}
-                        value={size}
-                        onChange={(e) => handleSizeChange(e, item)}
-                      />
-                      <span>
-                        {item.val}
-                        (<Currency price={item.price} />)
-                      </span>
+                  {infoProductSelect.variants.map((item) => (
+                    <div className="checkbox" key={item.code}>
+                      <Input type="radio" name="size" id={item.code} />
+                      <label htmlFor={item.code}>
+                        {item.val} (+
+                        <Currency
+                          price={item.price - infoProductSelect.base_price}
+                        />
+                        )
+                      </label>
                     </div>
                   ))}
                 </div>
               </div>
             )}
 
-            {productSelect.topping_list.length !== 0 && (
+            {infoProductSelect.topping_list.length !== 0 && (
               <div className="checkbox-container">
                 <p>Topping-</p>
                 <div className="checkbox-items">
-                  {productSelect.topping_list.map((item, index) => (
-                    <div className="checkbox" key={item.product_id}>
-                      <Input
-                        type="checkbox"
-                        name={item.product_name}
-                        checked={nameTopping.includes(item.product_name)}
-                        onChange={(e) => handleToppingChange(e, item, index)}
-                      />
-                      <span>
-                        {item.product_name}
-                        (<Currency price={item.price} />)
-                      </span>
+                  {infoProductSelect.topping_list.map((item) => (
+                    <div className="checkbox" key={item.code}>
+                      <Input type="checkbox" name="topping" id={item.code} />
+                      <label htmlFor={item.code}>
+                        {item.product_name} (+
+                        <Currency price={item.price} />)
+                      </label>
                     </div>
                   ))}
                 </div>
@@ -84,22 +68,21 @@ function ModalOrder({
             className="note"
             type="text"
             placeholder="Thêm ghi chú món này"
-            onChange={handleNoteChange}
           />
         </div>
 
         <div className="product-option__bot">
           <div className="product-option__bot-left">
-            <i className="fa fa-minus-circle" onClick={handleMinusAmount}></i>
+            <i
+              className={`fa fa-minus-circle ${amount === 0 ? "colorb" : null}`}
+              onClick={handleMinusAmount}
+            ></i>
             <span>{amount}</span>
             <i className="fa fa-plus-circle" onClick={handlePlusAmount}></i>
           </div>
-          <div
-            className="product-option__bot-right"
-            onClick={handleAddProductOrderClick}
-          >
+          <div className="product-option__bot-right">
             <p>Thêm vào giỏ hàng</p>
-            <Currency price={amount * (priceSize + priceTopping)} />
+            <Currency price="20000" />
           </div>
         </div>
       </div>
