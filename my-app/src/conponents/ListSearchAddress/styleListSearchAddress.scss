@@ -1,0 +1,35 @@
+.list-address {
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background-color: #fff;
+  width: 442px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  li {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #f5f5f5;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #f5f5f5;
+    }
+    .fa-map-marker-alt {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+  }
+}
+.item-address__info {
+  h3,
+  p {
+    font-size: 13px;
+    color: rgb(153, 153, 153);
+  }
+  h3 {
+    color: rgb(25, 25, 25);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+}

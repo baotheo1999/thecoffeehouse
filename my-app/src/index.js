@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "../node_modules/font-awesome/css/font-awesome.min.css";
-import "./assets/reset.css";
-import OrderPage from "./page/OrderPage.js";
-
+import App from "./containers/App";
+import "./style.scss";
+import { Provider } from "react-redux";
+import store from "./store";
 ReactDOM.render(
-    <React.StrictMode>
-        <OrderPage />
-    </React.StrictMode>,
-    document.getElementById("root")
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );

@@ -1,0 +1,90 @@
+.footer {
+  height: 408px;
+  width: 100%;
+  margin-top: 40px;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  background-color: #000000;
+  &-top {
+    padding: 70px 0 40px;
+    border-bottom: 1px solid #ffffff;
+    & > div {
+      width: 25%;
+    }
+    display: flex;
+    .footer-title {
+      color: #e07435;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 14px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    &__logo-icon {
+      margin-top: 50px;
+      a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        position: relative;
+        margin-right: 10px;
+        i {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #000000;
+        }
+      }
+    }
+    &__introduct {
+      &-title {
+        vertical-align: text-top;
+        span {
+          display: inline-block;
+          color: #fff;
+          font-weight: 400;
+          font-size: 10px;
+          max-width: 160px;
+          vertical-align: text-top;
+        }
+      }
+      &-items {
+        a {
+          color: #ffffff;
+          font-size: 14px;
+          transition: all 0.3s;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    &__app {
+      img {
+        height: 40px;
+        margin-bottom: 20px;
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+      }
+    }
+    &__contact {
+      p {
+        color: #ffffff;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  &-bot {
+    margin: 20px 0;
+    &__text {
+      color: rgb(51, 51, 51);
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
