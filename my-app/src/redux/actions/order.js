@@ -2,12 +2,14 @@ import {
   SELECT_PRODUCT,
   CLOSE_MODAL_ORDER,
   ADD_LIST_PRODUCT_ORDER,
+  SET_LIST_PRODUCT_ORDER,
 } from "../constants/order";
 
-export function selectProduct(product) {
+export function selectProduct(product, index) {
   return {
     type: SELECT_PRODUCT,
     product,
+    index,
   };
 }
 
@@ -21,5 +23,12 @@ export function addListProductOrder(product) {
   return {
     type: ADD_LIST_PRODUCT_ORDER,
     product,
+  };
+}
+
+export function setListProductOrder(listProductOrder) {
+  return {
+    type: SET_LIST_PRODUCT_ORDER,
+    listProductOrder,
   };
 }

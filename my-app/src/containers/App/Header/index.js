@@ -6,6 +6,7 @@ function Header() {
   const dispatch = useDispatch();
   const refAddress = useRef();
   const refShipNow = useRef();
+  const listOrderProduct = useSelector((state) => state.order.listProductOrder);
   const listAddress = useSelector((state) => state.address.listAddress);
   const [searchText, setSearchText] = useState("");
   const [close, setClose] = useState(false);
@@ -180,6 +181,8 @@ function Header() {
       textButton={textButton}
       handeleShipNow={handeleShipNow}
       refShipNow={refShipNow}
+      //cart
+      listOrderProduct={listOrderProduct}
     />
   );
 }

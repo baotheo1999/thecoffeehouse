@@ -9,8 +9,14 @@ function ModalOrder({
   handlePlusAmount,
   handleMinusAmount,
   infoProductSelect,
+  size,
+  handleProductSizeChange,
+  topping,
+  handleProductToping,
+  handleAddToCartClick,
+  note,
+  handleNoteChange,
 }) {
-  console.log(infoProductSelect);
   return (
     <>
       <div className="overlay" onClick={closeModalOrderClick}></div>
@@ -19,8 +25,8 @@ function ModalOrder({
           <Image src={infoProductSelect.image} width="80" height="80" />
           <div className="product-option__top-info">
             <p>{infoProductSelect.product_name}</p>
-            <p>Vừa</p>
-            <p>Topping 1</p>
+            <p>{size.val}</p>
+            <p>{topping.name.slice(0, -2)}</p>
           </div>
           <i className="fa fa-times" onClick={closeModalOrderClick}></i>
         </div>
@@ -33,11 +39,19 @@ function ModalOrder({
                 <div className="checkbox-items">
                   {infoProductSelect.variants.map((item) => (
                     <div className="checkbox" key={item.code}>
-                      <Input type="radio" name="size" id={item.code} />
+                      <Input
+                        type="radio"
+                        name="size"
+                        id={item.code}
+                        checked={size.val === item.val}
+                        onChange={() => handleProductSizeChange(item)}
+                      />
                       <label htmlFor={item.code}>
                         {item.val} (+
                         <Currency
-                          price={item.price - infoProductSelect.base_price}
+                          price={
+                            item.price - infoProductSelect.variants[0].price
+                          }
                         />
                         )
                       </label>
@@ -51,9 +65,15 @@ function ModalOrder({
               <div className="checkbox-container">
                 <p>Topping-</p>
                 <div className="checkbox-items">
-                  {infoProductSelect.topping_list.map((item) => (
+                  {infoProductSelect.topping_list.map((item, index) => (
                     <div className="checkbox" key={item.code}>
-                      <Input type="checkbox" name="topping" id={item.code} />
+                      <Input
+                        type="checkbox"
+                        name="topping"
+                        id={item.code}
+                        onChange={(e) => handleProductToping(e, item, index)}
+                        checked={topping.name.includes(item.product_name)}
+                      />
                       <label htmlFor={item.code}>
                         {item.product_name} (+
                         <Currency price={item.price} />)
@@ -68,6 +88,8 @@ function ModalOrder({
             className="note"
             type="text"
             placeholder="Thêm ghi chú món này"
+            value={note}
+            onChange={handleNoteChange}
           />
         </div>
 
@@ -80,9 +102,12 @@ function ModalOrder({
             <span>{amount}</span>
             <i className="fa fa-plus-circle" onClick={handlePlusAmount}></i>
           </div>
-          <div className="product-option__bot-right">
+          <div
+            className="product-option__bot-right"
+            onClick={handleAddToCartClick}
+          >
             <p>Thêm vào giỏ hàng</p>
-            <Currency price="20000" />
+            <Currency price={amount * (size.price + topping.price)} />
           </div>
         </div>
       </div>

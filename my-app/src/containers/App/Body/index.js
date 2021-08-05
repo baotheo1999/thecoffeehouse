@@ -4,9 +4,13 @@ import BodyCenter from "../../../conponents/BodyCenter";
 import BodyLeft from "../../../conponents/BodyLeft";
 import BodyRight from "../../../conponents/BodyRight";
 import Loading from "../../../conponents/Loading";
-import ModalOrder from "../../../conponents/ModalOrder";
+import ModalOrder from "./OrderProduct";
 import { getListData } from "../../../redux/actions/data";
-import { selectProduct } from "../../../redux/actions/order";
+import {
+  selectProduct,
+  CloseModalOrder,
+  setListProductOrder,
+} from "../../../redux/actions/order";
 
 function Body(props) {
   const dispatch = useDispatch();
@@ -15,15 +19,23 @@ function Body(props) {
   const infoProductSelect = useSelector(
     (state) => state.order.infoProductSelect
   );
+  const openModalOrder = useSelector(
+    (state) => state.order.statusFlags.openModal
+  );
+  const listProductOrder = useSelector((state) => state.order.listProductOrder);
 
   const [listFilterProduct, setListFilterProduct] = useState([]);
   const [searchText, setSearchText] = useState("");
-  //order
-  const [openModalOrder, setOpenModalOrder] = useState(false);
-  const [amount, setAmount] = useState(1);
 
   useEffect(() => {
     dispatch(getListData());
+    if (JSON.parse(localStorage.getItem("listOrderProduct"))) {
+      dispatch(
+        setListProductOrder(
+          JSON.parse(localStorage.getItem("listOrderProduct"))
+        )
+      );
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -77,23 +89,14 @@ function Body(props) {
   };
 
   //order product
-  const openModalOrderClick = (product) => {
-    setOpenModalOrder(true);
-    dispatch(selectProduct(product));
+  const openModalOrderClick = (product, index) => {
+    dispatch(selectProduct(product, index));
   };
   const closeModalOrderClick = () => {
-    setOpenModalOrder(false);
-  };
-  //end order product
-  const handlePlusAmount = () => {
-    setAmount(amount + 1);
+    dispatch(CloseModalOrder());
   };
 
-  const handleMinusAmount = () => {
-    if (amount > 0) {
-      setAmount(amount - 1);
-    }
-  };
+  //end order product
 
   //render
   if (stateFlag.isLoading) {
@@ -111,15 +114,15 @@ function Body(props) {
               listFilterProduct={listFilterProduct}
               openModalOrderClick={openModalOrderClick}
             />
-            <BodyRight />
+            <BodyRight
+              listProductOrder={listProductOrder}
+              openModalOrderClick={openModalOrderClick}
+            />
           </div>
         </div>
         {openModalOrder && (
           <ModalOrder
             closeModalOrderClick={closeModalOrderClick}
-            amount={amount}
-            handlePlusAmount={handlePlusAmount}
-            handleMinusAmount={handleMinusAmount}
             infoProductSelect={infoProductSelect}
           />
         )}

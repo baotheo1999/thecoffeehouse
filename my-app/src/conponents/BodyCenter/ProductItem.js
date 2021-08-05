@@ -1,13 +1,9 @@
 import React from "react";
 import Currency from "../../conponents/common/Currency";
 import Image from "../../conponents/common/Image";
-function ProductItem({
-  listProduct,
-  openModalOrderClick,
-  handleSelectProductClick,
-}) {
+function ProductItem({ listProduct, openModalOrderClick }) {
   return (
-    <li onClick={() => openModalOrderClick(listProduct)}>
+    <li onClick={() => openModalOrderClick(listProduct, -1)}>
       <div className="product-img">
         <Image
           src={listProduct.image}

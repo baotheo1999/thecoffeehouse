@@ -27,6 +27,7 @@ function Header({
   textButton,
   handeleShipNow,
   refShipNow,
+  listOrderProduct,
 }) {
   return (
     <header>
@@ -88,7 +89,7 @@ function Header({
             </div>
             <div className="header-right">
               <Button text="Đăng nhập" />
-              <Cart />
+              <Cart listOrderProduct={listOrderProduct} />
             </div>
           </div>
         </div>
