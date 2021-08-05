@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeaderRender from "../../../conponents/layout/Header";
 import { getListAddress } from "../../../redux/actions/address";
+import { debounce } from "lodash";
 function Header() {
   const dispatch = useDispatch();
   const refAddress = useRef();
@@ -18,10 +19,20 @@ function Header() {
   const [textButton, setTextButton] = useState("");
 
   //address
+
+  const fetchAddress = (key) => {
+    dispatch(getListAddress(key));
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debounceSearchAddress = useCallback(
+    debounce((nextValue) => fetchAddress(nextValue), 500),
+    []
+  );
   const handleSearchAddressChange = (e) => {
     setSearchText(e.target.value);
     if (e.target.value.length > 3) {
-      dispatch(getListAddress(e.target.value));
+      debounceSearchAddress(e.target.value);
     }
   };
 
@@ -162,6 +173,7 @@ function Header() {
 
   return (
     <HeaderRender
+      //address
       searchText={searchText}
       listAddress={listAddress}
       close={close}

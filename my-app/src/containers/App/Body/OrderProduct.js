@@ -67,6 +67,7 @@ function OrderProduct({ infoProductSelect, closeModalOrderClick }) {
       totalPrice: amount * (size.price + topping.price),
     };
     dispatch(addListProductOrder(product));
+    document.body.classList.remove("lock-scroll");
   };
 
   useEffect(() => {
