@@ -57,7 +57,7 @@ function BodyRight({ listProductOrder, openModalOrderClick }) {
           </div>
           <div className="payment-item">
             <p>Vận chuyển</p>
-            <Currency price="10000" />
+            <Currency price={listProductOrder.length === 0 ? "0" : "15000"} />
           </div>
           <div className="payment-from">
             <Input type="text" placeholder="Nhập mã ưu đãi" />
@@ -66,7 +66,12 @@ function BodyRight({ listProductOrder, openModalOrderClick }) {
         </div>
         <div className="total">
           <p>Tổng cộng</p>
-          <Currency price={totalPrice(listProductOrder) + 10000} />
+          <Currency
+            price={
+              totalPrice(listProductOrder) +
+              (listProductOrder.length === 0 ? 0 : 15000)
+            }
+          />
         </div>
       </div>
     </div>

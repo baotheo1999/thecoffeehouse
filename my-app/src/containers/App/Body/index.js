@@ -91,9 +91,11 @@ function Body(props) {
   //order product
   const openModalOrderClick = (product, index) => {
     dispatch(selectProduct(product, index));
+    document.body.classList.add("lock-scroll");
   };
   const closeModalOrderClick = () => {
     dispatch(CloseModalOrder());
+    document.body.classList.remove("lock-scroll");
   };
 
   //end order product
