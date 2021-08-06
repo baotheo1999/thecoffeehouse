@@ -55,7 +55,7 @@ function OrderProduct({ infoProductSelect, closeModalOrderClick }) {
   const handleAddToCartClick = () => {
     const product = {
       product_name: infoProductSelect.product_name,
-      image: infoProductSelect.image,
+      high_res_image: infoProductSelect.high_res_image,
       topping_list: infoProductSelect.topping_list,
       variants: infoProductSelect.variants,
       //active

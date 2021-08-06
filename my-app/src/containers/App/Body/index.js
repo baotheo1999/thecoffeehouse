@@ -29,6 +29,7 @@ function Body(props) {
 
   useEffect(() => {
     dispatch(getListData());
+
     if (JSON.parse(localStorage.getItem("listOrderProduct"))) {
       dispatch(
         setListProductOrder(

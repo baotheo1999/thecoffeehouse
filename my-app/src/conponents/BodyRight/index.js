@@ -29,26 +29,29 @@ function BodyRight({ listProductOrder, openModalOrderClick }) {
             }
           />
         </div>
-        <div className="cart-list">
-          {listProductOrder.map((item, index) => (
-            <div
-              className="cart-item"
-              key={index}
-              onClick={() => openModalOrderClick(item, index)}
-            >
-              <div className="cart-item__info">
-                <span>{item.amount}</span>
-                <div className="product-info">
-                  <p>{item.product_name}</p>
-                  <p>{item.size.val}</p>
-                  <p>{item.topping.name.slice(0, -2)}</p>
-                  <p>{item.note}</p>
+
+        {listProductOrder.length !== 0 && (
+          <div className="cart-list">
+            {listProductOrder.map((item, index) => (
+              <div
+                className="cart-item"
+                key={index}
+                onClick={() => openModalOrderClick(item, index)}
+              >
+                <div className="cart-item__info">
+                  <span>{item.amount}</span>
+                  <div className="product-info">
+                    <p>{item.product_name}</p>
+                    <p>{item.size.val}</p>
+                    <p>{item.topping.name.slice(0, -2)}</p>
+                    <p>{item.note}</p>
+                  </div>
                 </div>
+                <Currency price={item.totalPrice} />
               </div>
-              <Currency price={item.totalPrice} />
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         <div className="payment">
           <div className="payment-item">

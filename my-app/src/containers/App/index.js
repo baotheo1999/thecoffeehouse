@@ -1,15 +1,20 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Footer from "../../conponents/layout/Footer";
-import Header from "./Header";
 import Body from "./Body";
+import Regester from "./Form/Regester";
+import Header from "./Header";
 
 function App() {
   return (
-    <div className="app">
-      <Header />
-      <Body />
-      <Footer />
-    </div>
+    <Router>
+      <div className="app">
+        <Header />
+        <Route path="/" exact component={Body} />
+        <Route path="/regester" component={Regester} />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

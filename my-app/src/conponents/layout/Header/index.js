@@ -8,6 +8,7 @@ import ListSearchAddress from "../../ListSearchAddress";
 import NoneAddress from "../../ListSearchAddress/NoneAddress";
 import ShipNow from "../../ShipNow";
 import "./styleHeader.scss";
+import { Link } from "react-router-dom";
 function Header({
   searchText,
   handleSearchAddressChange,
@@ -35,7 +36,9 @@ function Header({
         <div className="container">
           <div className="header">
             <div className="header-left">
-              <Image src={logo} alt="logo thecoffee house" width="190" />
+              <Link to="/">
+                <Image src={logo} alt="logo thecoffee house" width="190" />
+              </Link>
             </div>
             <div className="header-center">
               <div className="header-center__shipnow" ref={refShipNow}>
@@ -88,7 +91,10 @@ function Header({
               </form>
             </div>
             <div className="header-right">
-              <Button text="Đăng nhập" />
+              <Link to="/regester">
+                <Button text="Đăng nhập" />{" "}
+              </Link>
+
               <Cart listOrderProduct={listOrderProduct} />
             </div>
           </div>

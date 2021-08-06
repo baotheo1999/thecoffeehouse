@@ -22,7 +22,11 @@ function ModalOrder({
       <div className="overlay" onClick={closeModalOrderClick}></div>
       <div className="modal-order">
         <div className="product-option__top">
-          <Image src={infoProductSelect.image} width="80" height="80" />
+          <Image
+            src={infoProductSelect.high_res_image}
+            width="80"
+            height="80"
+          />
           <div className="product-option__top-info">
             <p>{infoProductSelect.product_name}</p>
             <p>{size.val}</p>

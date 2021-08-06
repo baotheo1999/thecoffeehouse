@@ -6,7 +6,7 @@ function ProductItem({ listProduct, openModalOrderClick }) {
     <li onClick={() => openModalOrderClick(listProduct, -1)}>
       <div className="product-img">
         <Image
-          src={listProduct.image}
+          src={listProduct.high_res_image}
           alt={listProduct.product_name}
           width="80"
           height="80"
