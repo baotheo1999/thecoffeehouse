@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import firebaseConfig from "../../firebaseConfig";
 import * as firebaseui from "firebaseui";
 import firebase from "firebase";
 import "firebaseui/dist/firebaseui.css";
 
-function Regester(props) {
+function Register(props) {
   useEffect(() => {
     firebase.initializeApp(firebaseConfig);
     const uiConfig = {
@@ -39,4 +39,4 @@ function Regester(props) {
   );
 }
 
-export default Regester;
+export default Register;

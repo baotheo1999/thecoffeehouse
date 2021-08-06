@@ -91,7 +91,7 @@ function Header({
               </form>
             </div>
             <div className="header-right">
-              <Link to="/regester">
+              <Link to="/register">
                 <Button text="Đăng nhập" />{" "}
               </Link>
 
