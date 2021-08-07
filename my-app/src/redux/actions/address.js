@@ -2,6 +2,7 @@ import {
   GET_LIST_ADDRESS,
   GET_LIST_ADDRESS_FAILED,
   GET_LIST_ADDRESS_SUCCESS,
+  RESET_LIST_ADDRESS,
 } from "../constants/address";
 
 export function getListAddress(searchText) {
@@ -22,5 +23,11 @@ export function getListAddressFailed(message = "") {
   return {
     type: GET_LIST_ADDRESS_FAILED,
     message,
+  };
+}
+
+export function resetListAddress() {
+  return {
+    type: RESET_LIST_ADDRESS,
   };
 }

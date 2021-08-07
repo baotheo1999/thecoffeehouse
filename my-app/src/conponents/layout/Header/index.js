@@ -65,7 +65,7 @@ function Header({
                   />
                 )}
               </div>
-              <form>
+              <div>
                 <Input
                   type="text"
                   placeholder="Nhập địa chỉ giao hàng"
@@ -88,10 +88,10 @@ function Header({
                     <NoneAddress />
                   )
                 ) : null}
-              </form>
+              </div>
             </div>
             <div className="header-right">
-              <Link to="/register">
+              <Link to="/login">
                 <Button text="Đăng nhập" />{" "}
               </Link>
 

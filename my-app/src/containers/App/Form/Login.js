@@ -1,8 +1,8 @@
+import firebase from "firebase/app";
+import * as firebaseui from "firebaseui";
+import "firebaseui/dist/firebaseui.css";
 import React, { useEffect } from "react";
 import firebaseConfig from "../../firebaseConfig";
-import * as firebaseui from "firebaseui";
-import firebase from "firebase";
-import "firebaseui/dist/firebaseui.css";
 
 function Register(props) {
   useEffect(() => {
@@ -11,20 +11,17 @@ function Register(props) {
       signInOptions: [
         {
           provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-          recaptchaParameters: {
-            type: "image",
-            size: "normal",
-            badge: "bottomleft",
-          },
+
           defaultCountry: "VN",
         },
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       ],
-      callbacks: {
-        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-          alert("thanh cong");
-          return true;
-        },
-      },
+      // callbacks: {
+      //   signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+      //     alert("thanh cong");
+      //     return true;
+      //   },
+      // },
       signInSuccessUrl: "http://localhost:3000/",
     };
     var ui = new firebaseui.auth.AuthUI(firebase.auth());

@@ -3,6 +3,7 @@ import {
   GET_LIST_ADDRESS,
   GET_LIST_ADDRESS_FAILED,
   GET_LIST_ADDRESS_SUCCESS,
+  RESET_LIST_ADDRESS,
 } from "../constants/address";
 
 export const initialState = {
@@ -32,6 +33,11 @@ const addressReducer = (state = initialState, action) =>
       case GET_LIST_ADDRESS_FAILED: {
         draft.statusFlags.isOpen = false;
         draft.log.error = action.message;
+        break;
+      }
+      case RESET_LIST_ADDRESS: {
+        draft.statusFlags.isOpen = false;
+        draft.listAddress = [];
         break;
       }
     }

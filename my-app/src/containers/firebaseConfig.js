@@ -1,11 +1,11 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyAO1G4CfNUJwJljYcsFSrLHSqa9qv5lfCk",
-  authDomain: "demootp-7c720.firebaseapp.com",
-  projectId: "demootp-7c720",
-  storageBucket: "demootp-7c720.appspot.com",
-  messagingSenderId: "309489426693",
-  appId: "1:309489426693:web:914eaa0312e3b4e26c576c",
-  measurementId: "G-N6PB1ZM3G7",
+  apiKey: "AIzaSyBmEwK6gq7Lyt55_pNNFFiP1wlwCBLAVaU",
+  authDomain: "demologin-b5801.firebaseapp.com",
+  projectId: "demologin-b5801",
+  storageBucket: "demologin-b5801.appspot.com",
+  messagingSenderId: "710234655855",
+  appId: "1:710234655855:web:add19ad130949e5d91519a",
+  measurementId: "G-GXH7VXQE25",
 };
 
 export default firebaseConfig;

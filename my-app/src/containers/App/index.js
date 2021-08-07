@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Footer from "../../conponents/layout/Footer";
 import Body from "./Body";
-import Register from "./Form/Register";
+import Login from "./Form/Login";
 import Header from "./Header";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <div className="app">
         <Header />
         <Route path="/" exact component={Body} />
-        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
         <Footer />
       </div>
     </Router>
