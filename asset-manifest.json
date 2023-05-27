@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/nqabao99/thecoffeehouse/static/css/main.4266be12.chunk.css",
+    "main.js": "/nqabao99/thecoffeehouse/static/js/main.a95c6870.chunk.js",
+    "main.js.map": "/nqabao99/thecoffeehouse/static/js/main.a95c6870.chunk.js.map",
+    "runtime-main.js": "/nqabao99/thecoffeehouse/static/js/runtime-main.f5d7722a.js",
+    "runtime-main.js.map": "/nqabao99/thecoffeehouse/static/js/runtime-main.f5d7722a.js.map",
+    "static/css/2.d964bb24.chunk.css": "/nqabao99/thecoffeehouse/static/css/2.d964bb24.chunk.css",
+    "static/js/2.05005c85.chunk.js": "/nqabao99/thecoffeehouse/static/js/2.05005c85.chunk.js",
+    "static/js/2.05005c85.chunk.js.map": "/nqabao99/thecoffeehouse/static/js/2.05005c85.chunk.js.map",
+    "index.html": "/nqabao99/thecoffeehouse/index.html",
+    "static/css/2.d964bb24.chunk.css.map": "/nqabao99/thecoffeehouse/static/css/2.d964bb24.chunk.css.map",
+    "static/css/main.4266be12.chunk.css.map": "/nqabao99/thecoffeehouse/static/css/main.4266be12.chunk.css.map",
+    "static/js/2.05005c85.chunk.js.LICENSE.txt": "/nqabao99/thecoffeehouse/static/js/2.05005c85.chunk.js.LICENSE.txt",
+    "static/media/google-play-badge.a8dcb40e.png": "/nqabao99/thecoffeehouse/static/media/google-play-badge.a8dcb40e.png",
+    "static/media/gov.52f6b622.png": "/nqabao99/thecoffeehouse/static/media/gov.52f6b622.png",
+    "static/media/loadingcofe.e8103fb8.gif": "/nqabao99/thecoffeehouse/static/media/loadingcofe.e8103fb8.gif",
+    "static/media/logo.c67fb30e.png": "/nqabao99/thecoffeehouse/static/media/logo.c67fb30e.png",
+    "static/media/no.cd5fd4c2.png": "/nqabao99/thecoffeehouse/static/media/no.cd5fd4c2.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f5d7722a.js",
+    "static/css/2.d964bb24.chunk.css",
+    "static/js/2.05005c85.chunk.js",
+    "static/css/main.4266be12.chunk.css",
+    "static/js/main.a95c6870.chunk.js"
+  ]
+}
